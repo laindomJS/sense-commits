@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "A CLI tool for write commits with more sense, with correct syntax",
   "type": "module",
+  "bin": {
+    "sense-commits": "./src/bin.js"
+  },
   "main": "index.js",
   "scripts": {
+    "sc": "sense-commits",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,6 +21,7 @@
   "author": "laints",
   "license": "ISC",
   "devDependencies": {
+    "sense-commits": "file://.",
     "standard": "17.0.0"
   },
   "eslintConfig": {
