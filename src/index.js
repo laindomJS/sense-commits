@@ -69,8 +69,6 @@ if (release) {
     message: `${colors.cyan('Does the commit have any changes that might break compatibility?')} 
     ${colors.yellow('If the answer is yes, a commit will be created with the special type BREAKING CHANGE')}`
   })
-
-  if (isCancel(breakingChange)) exitProgram()
 }
 
 // se crea el commit
