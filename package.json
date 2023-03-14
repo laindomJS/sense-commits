@@ -1,0 +1,30 @@
+{
+  "name": "sense-commits",
+  "version": "1.0.0",
+  "description": "A CLI tool for write commits with more sense, with correct syntax",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "commits",
+    "tools",
+    "package"
+  ],
+  "author": "laints",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "17.0.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "dependencies": {
+    "@bdsqqq/try": "2.3.1",
+    "@clack/prompts": "0.6.3",
+    "picocolors": "1.0.0"
+  }
+}
