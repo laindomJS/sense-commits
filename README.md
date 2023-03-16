@@ -27,9 +27,14 @@ Builded App with the [@midudev](https://www.github.com/midudev) NodeJS course in
 ```bash
   npm i -D sense-commits
 ```
-
 ## Usage
 
-```bash
-  npx sense-commits@latest
+```javascript
+In the package.json, 
+add the script "sc" to make an npm run
+
+"scripts": {
+    "sc": "sense-commits",
+  },
 ```
+
