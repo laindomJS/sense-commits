@@ -1,6 +1,6 @@
 {
   "name": "sense-commits",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A CLI tool for write commits with more sense, with correct syntax",
   "type": "module",
   "bin": {
@@ -8,8 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "sc": "sense-commits",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sc": "sense-commits"
   },
   "keywords": [
     "node",

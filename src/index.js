@@ -1,7 +1,7 @@
 import { intro, text, select, outro, confirm, multiselect, isCancel } from '@clack/prompts'
 import { trytm } from '@bdsqqq/try'
 
-import { getChangedFiles, getStagedFiles, gitAdd, gitCommit } from './git.js'
+import { getChangedFiles, getStagedFiles, gitAdd, gitCommit, initRepo } from './git.js'
 import { COMMIT_TYPES } from './commit-types.js'
 import { exitProgram } from './utils.js'
 
@@ -14,8 +14,16 @@ const [stagedFiles, errorStagedFiles] = await trytm(getStagedFiles())
 
 if (errorChangedFiles ?? errorStagedFiles) {
   // TODO: Decidir si inicializar un repositorio de git o no
-  outro(colors.red('Error: You not have a git repo'))
-  process.exit(1)
+  const confirmInitializeRepo = await confirm({
+    initialValue: true,
+    message: colors.cyan('You want to initialize a git repo?')
+  })
+
+  if (!confirmInitializeRepo) {
+    exitProgram({ code: 0, message: "You wan't initialize a git repo" })
+  }
+
+  await initRepo()
 }
 
 // si se tienen archivos cambiados, dar la oportunidad de elegir cuales se deben de commitear
@@ -48,10 +56,10 @@ if (isCancel(commitType)) exitProgram()
 const commitMsg = await text({
   message: colors.cyan('Commit message:'),
   validate: (value) => {
-    if (value === 0) {
+    if (value.length === 0) {
       return colors.red('The message is empty!')
     }
-    if (value > 60) {
+    if (value.length > 60) {
       return colors.red('The message is to long')
     }
   }
